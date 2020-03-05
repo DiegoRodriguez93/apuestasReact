@@ -31445,23 +31445,85 @@ var _Handles = _interopRequireDefault(require("./Handles"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Jugadores() {
-  return localStorage.getItem('yavoto') == 1 ? 'Ya votaste!' : _react.default.createElement("div", null, _react.default.createElement("div", {
+  return localStorage.getItem('yavoto') == 1 ? 'Ya votaste!' : _react.default.createElement("div", {
+    className: "row"
+  }, _react.default.createElement("div", {
+    className: "col-lg-3 sm-6"
+  }, _react.default.createElement("div", {
+    className: "card"
+  }, _react.default.createElement("img", {
+    src: "...",
+    className: "card-img-top",
+    alt: "..."
+  }), _react.default.createElement("div", {
+    className: "card-body"
+  }, _react.default.createElement("h5", {
+    className: "card-title"
+  }, "Lucas \xC1vila"), _react.default.createElement("p", {
+    className: "card-text"
+  }, "Some quick example text to build on the card title and make up the bulk of the card's content."), _react.default.createElement("a", {
     onClick: function onClick(e) {
       return (0, _Handles.default)(1, e);
-    }
-  }, "Lucas \xC1vila"), _react.default.createElement("br", null), _react.default.createElement("div", {
+    },
+    className: "btn btn-primary"
+  }, "Votar por Lucas")))), _react.default.createElement("div", {
+    className: "col-lg-3 sm-6"
+  }, _react.default.createElement("div", {
+    className: "card"
+  }, _react.default.createElement("img", {
+    src: "...",
+    className: "card-img-top",
+    alt: "..."
+  }), _react.default.createElement("div", {
+    className: "card-body"
+  }, _react.default.createElement("h5", {
+    className: "card-title"
+  }, "H\xE9ctor Fiori"), _react.default.createElement("p", {
+    className: "card-text"
+  }, "Some quick example text to build on the card title and make up the bulk of the card's content."), _react.default.createElement("a", {
     onClick: function onClick(e) {
       return (0, _Handles.default)(2, e);
-    }
-  }, "H\xE9ctor Fiori"), _react.default.createElement("br", null), _react.default.createElement("div", {
+    },
+    className: "btn btn-primary"
+  }, "Votar por Hector")))), _react.default.createElement("div", {
+    className: "col-lg-3 sm-6"
+  }, _react.default.createElement("div", {
+    className: "card"
+  }, _react.default.createElement("img", {
+    src: "...",
+    className: "card-img-top",
+    alt: "..."
+  }), _react.default.createElement("div", {
+    className: "card-body"
+  }, _react.default.createElement("h5", {
+    className: "card-title"
+  }, "Claudio Geloso"), _react.default.createElement("p", {
+    className: "card-text"
+  }, "Some quick example text to build on the card title and make up the bulk of the card's content."), _react.default.createElement("a", {
     onClick: function onClick(e) {
       return (0, _Handles.default)(3, e);
-    }
-  }, "Claudio Geloso"), _react.default.createElement("br", null), _react.default.createElement("div", {
+    },
+    className: "btn btn-primary"
+  }, "Votar por Claudio")))), _react.default.createElement("div", {
+    className: "col-lg-3 sm-6"
+  }, _react.default.createElement("div", {
+    className: "card"
+  }, _react.default.createElement("img", {
+    src: "...",
+    className: "card-img-top",
+    alt: "..."
+  }), _react.default.createElement("div", {
+    className: "card-body"
+  }, _react.default.createElement("h5", {
+    className: "card-title"
+  }, "Mauro Di Franco"), _react.default.createElement("p", {
+    className: "card-text"
+  }, "Some quick example text to build on the card title and make up the bulk of the card's content."), _react.default.createElement("a", {
     onClick: function onClick(e) {
       return (0, _Handles.default)(4, e);
-    }
-  }, "Mauro di Franco"));
+    },
+    className: "btn btn-primary"
+  }, "Votar por Mauro")))));
 }
 },{"react":"../node_modules/react/index.js","./Handles":"../src/components/Handles.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
@@ -31585,7 +31647,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61068" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54940" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
