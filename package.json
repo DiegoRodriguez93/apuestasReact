@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.19.2",
     "boostrap": "^2.0.0",
     "bootstrap": "^4.4.1",
     "jquery": "1.9.1 - 3",
