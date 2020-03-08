@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from './components/Header';
 import Jugadores from './components/Jugadores';
+import 'babel-polyfill'; 
 import 'bootstrap/dist/css/bootstrap.css';
 
 function App(){
 
-    return (<div className="container"><Header/>
+    return (<div className="container">
      <Jugadores/></div>)
 
 }

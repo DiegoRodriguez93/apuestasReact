@@ -1,67 +1,76 @@
+import React from 'react';
 import Swal from 'sweetalert2';
-import axios from 'axios';
+import $ from 'jquery';
 
-export default function handleClick($id, e) {
+
+function handleClick($id, e) {
     e.preventDefault(); 
 
     if($id == 1){
          name = 'Lucas Ávila';
     }else if($id == 2){
          name = 'Héctor Fiori';
-    }else if($id == 3){
-        name = 'Claudio Geloso';
-    }else if($id == 4){
-        name = 'Mauro Di Franco';
     }
+
     Swal.mixin({
 
       input: 'email',
+      inputPlaceholder: 'ejemplo@email.com',
       confirmButtonText: 'Ingresar &rarr;',
       background: '#fff',
       }).queue([
       {
-      title: 'Ingrese el correo electronico para el sorteo!'
+      title: 'Ingrese el correo electrónico para votar!'
       }
-      ]).then((result) => {
+      ]).then( (result) => {
       if (result.value) {
       const answers = JSON.stringify(result.value)
-      const email = answers.replace('["', '');
-      console.log(result);
-      console.log(email);
-      axios({
-        method: 'POST',
-        url: 'https://ajedrezlatino.com/apiapuestas/apostar.php',
-        data: {id: $id, email: result.value}
-      })
-      .then(function (res) {
-        if(res.result){
-          Swal.fire(
-            'Has votado!',
+      const $email0 = answers.replace('["', '');
+      const $email = $email0.replace('"]', '');
+
+      $.ajax({
+        type: "POST",
+        url: "https://ajedrezlatino.com/apiapuestas/apostar.php",
+        data: {id: $id, email: $email},
+        dataType: "JSON",
+        beforeSend: () => {
+          Swal.fire({
+            title: 'Votando...',
+            allowEscapeKey: false,
+            allowOutsideClick: false,
+            onOpen: () => {
+              Swal.showLoading();
+            }
+          })},
+         success: function (res) {
+          if(res.result){
+            Swal.fire('Correcto!',
+                res.message,
+                'success');
+                localStorage.setItem('yavoto',1);
+                setTimeout(()=>{
+                  location.reload();
+                },2500);
+          }else{
+            Swal.fire('Error!',
             res.message,
-            'success'
-          );
-          localStorage.setItem('yavoto',1);
-        }else{
-          Swal.fire(
-            'Error!',
-            res.message,
-            'error'
-          );
+            'error');
+          }
         }
- 
-      })
-      .catch(function (error) {
-          console.log(error);
       });
-      
-      }
-      })
-      
-/*
-      axios({
+
+  
+     
+
+
+
+
+
+
+   /*    axios({
         method: 'POST',
         url: 'https://ajedrezlatino.com/apiapuestas/apostar.php',
-        data: {id: $id}
+        data: JSON.stringify({id: $id, email: $email})
       })
       .then(function (res) {
         if(res.result){
@@ -83,11 +92,11 @@ export default function handleClick($id, e) {
       .catch(function (error) {
           console.log(error);
       }); */
-
-/*       
-       Swal.fire(
-         'Has votado!',
-         'Se ha registrado el voto con éxito.',
-         'success'
-       ) */
+      
+      }
+      })
+      
      }
+
+
+     export default handleClick;
